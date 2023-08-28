@@ -1,0 +1,222 @@
+local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
+
+local Window = Rayfield:CreateWindow({
+   Name = "EzPzXHub",
+   LoadingTitle = "Welcome",
+   LoadingSubtitle = "by Maro",
+   ConfigurationSaving = {
+      Enabled = false,
+      FolderName = "EzPzXHubFolder",
+      FileName = "EzPzXHub"
+   },
+   Discord = {
+      Enabled = true,
+      Invite = "mC6Ru7dGeq",
+      RememberJoins = false -- Set this to false to make them join the discord every time they load it up
+   },
+   KeySystem = true, -- Set this to true to use our key system
+   KeySettings = {
+      Title = "EzPzXHub",
+      Subtitle = "Key System",
+      Note = "pastebin.com/raw/3MH2bZ07 Changing every week",
+      FileName = "Key", -- It is recommended to use something unique as other scripts using Rayfield may overwrite your key file
+      SaveKey = true, -- The user's key will be saved, but if you change the key, they will be unable to use your script
+      GrabKeyFromSite = true, -- If this is true, set Key below to the RAW site you would like Rayfield to get the key from
+      Key = {"https://pastebin.com/raw/3MH2bZ07"} -- List of keys that will be accepted by the system, can be RAW file links (pastebin, github etc) or simple strings ("hello","key22")
+   }
+})
+
+Rayfield:Notify({
+   Title = "Thanks for using my script hub!",
+   Content = "I love you so much!",
+   Duration = 6.5,
+   Image = 4483362458,
+   Actions = { -- Notification Buttons
+      Ignore = {
+         Name = "Okay!",
+         Callback = function()
+      end
+   },
+},
+})
+
+local PlayerTab = Window:CreateTab("LocalPlayer", 4483362458)
+local PlayerSection = PlayerTab:CreateSection("Player")
+
+local ScriptsTab = Window:CreateTab("Scripts", 4483362458)
+local ScriptsSection = ScriptsTab:CreateSection("Games")
+
+local WalkSpeedSlider = PlayerTab:CreateSlider({
+    Name = "WalkSpeed",
+    Range = {0, 500},
+    Increment = 1,
+    Suffix = "Speed",
+    CurrentValue = 16,
+    Flag = "WalkSpeedSlider", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+    Callback = function(Value)
+		game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = Value
+    end,
+ })
+
+ local JumpPowerSlider = PlayerTab:CreateSlider({
+    Name = "JumpPower",
+    Range = {0, 500},
+    Increment = 1,
+    Suffix = "Power",
+    CurrentValue = 50,
+    Flag = "JumpPowerSlider", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+    Callback = function(Value)
+		game.Players.LocalPlayer.Character.Humanoid.JumpPower = Value
+    end,
+ })
+
+ local MaxHealthSlider = PlayerTab:CreateSlider({
+    Name = "MaxHealth",
+    Range = {0, 1000},
+    Increment = 1,
+    Suffix = "Max",
+    CurrentValue = 100,
+    Flag = "MaxHealth",
+    Callback = function(Value)
+		game.Players.LocalPlayer.Character.Humanoid.MaxHealth = Value
+		game.Players.LocalPlayer.Character.Humanoid.Health = Value
+    end,
+ })
+
+local Button = PlayerTab:CreateButton({
+   Name = "Fly [Mobile]",
+   Callback = function()
+	  loadstring(game:HttpGet('https://pastebin.com/raw/eNLzSJbC'))()
+   end,
+})
+
+local Button = PlayerTab:CreateButton({
+   Name = "Headless [CLIENT]",
+   Callback = function()
+  	  game.Players.LocalPlayer.Character.Head.Transparency = 1
+	  game.Players.LocalPlayer.Character.Head.face:Destroy()
+   end,
+})
+
+local Button = PlayerTab:CreateButton({
+   Name = "Korblox [R15 SERVER-SIDE]",
+   Callback = function()
+  	  game.Players.LocalPlayer.Character.RightLowerLeg.MeshId = "902942093"
+	  game.Players.LocalPlayer.Character.RightLowerLeg.Transparency = "1"
+  	  game.Players.LocalPlayer.Character.RightUpperLeg.MeshId = "http://www.roblox.com/asset/?id=902942096"
+  	  game.Players.LocalPlayer.Character.RightUpperLeg.TextureID = "http://roblox.com/asset/?id=902843398"
+  	  game.Players.LocalPlayer.Character.RightFoot.MeshId = "902942089"
+  	  game.Players.LocalPlayer.Character.RightFoot.Transparency = "1"
+   end,
+})
+
+local Button = PlayerTab:CreateButton({
+   Name = "Korblox [R6 SERVER-SIDE]",
+   Callback = function()
+  	  game.Players.LocalPlayer.Character['Right Leg']:remove()
+   end,
+})
+
+local Button = PlayerTab:CreateButton({
+   Name = "Ball [FE/SERVER-SIDE]",
+   Callback = function()
+	  loadstring(game:HttpGet('https://pastebin.com/raw/8ZuVpM9n'))()
+   end,
+})
+
+local Button = PlayerTab:CreateButton({
+   Name = "Reset",
+   Callback = function()
+	  game.Players.LocalPlayer.Character.Humanoid.Health = 0
+   end,
+})
+
+local Button = ScriptsTab:CreateButton({
+   Name = "Arm Wrestle Simulator",
+   Callback = function()
+	  loadstring(game:HttpGet("https://raw.githubusercontent.com/Kenniel123/Arm-wrestle-v3/main/Arm%20wrestle%20v3",true))();
+   end,
+})
+
+local Button = ScriptsTab:CreateButton({
+   Name = "Toilet Tower Defense [PATCHED/DETECTED]",
+   Callback = function()
+	  h = Instance.new("Hint", game.Workspace)
+      h.Text = "Key for the script is: ToiletRobloxDefense8712"
+	  	loadstring(game:HttpGet("https://raw.githubusercontent.com/LOLking123456/Tower/main/Toilet"))()
+	  wait(30)
+	  h:remove()
+   end,
+})
+
+local Button = ScriptsTab:CreateButton({
+   Name = "Insane Elevator!",
+   Callback = function()
+	  h = Instance.new("Hint", game.Workspace)
+      h.Text = "Key for the script is: 8Y6kq8vcMs"
+	  loadstring(game:HttpGet("https://raw.githubusercontent.com/Nadir3709/ScriptHub/main/KeySystem"))()
+	  wait(30)
+	  h:remove()
+   end,
+})
+
+local Button = ScriptsTab:CreateButton({
+   Name = "Yeet A Plane [AUTO FARM]",
+   Callback = function()
+	  loadstring(game:HttpGet("https://raw.githubusercontent.com/ToraIsMe/ToraIsMe/main/0YeetaPlane"))()
+   end,
+})
+
+
+
+local Toggle = ScriptsTab:CreateToggle({
+   Name = "Every Second you get +1 health",
+   CurrentValue = false,
+   Flag = "Toggle1",
+   Callback = function(Value)
+      _G.enabled = Value
+
+	  while _G.enabled do
+	    wait()
+			firetouchinterest(game:GetService("Workspace").Wins.Pipe,game.Players.LocalPlayer.Character.HumanoidRootPart,0)
+	    wait()
+		firetouchinterest(game:GetService("Workspace").Wins.Pipe,game.Players.LocalPlayer.Character.HumanoidRootPart,1)
+	  end
+   end,
+})
+
+local Toggle = ScriptsTab:CreateToggle({
+   Name = "Anime Energy Clash Simulator",
+   CurrentValue = false,
+   Flag = "Toggle1",
+   Callback = function(Value)
+		_G.Win = Value
+		_G.AutoClick = Value
+		while _G.Win do
+			local args = { 
+    			[1] = true
+			}		
+			game:GetService("ReplicatedStorage"):WaitForChild("Remote"):WaitForChild("Event"):WaitForChild("Game"):WaitForChild("[C-S]PlayerPKEnd"):FireServer(unpack(args))
+			wait()
+	  	end
+		while _G.AutoClick do
+   			game:GetService("ReplicatedStorage"):WaitForChild("Remote"):WaitForChild("Event"):WaitForChild("Game"):WaitForChild("[C-S]PlayerClick"):FireServer()
+		end
+   end,
+})
+
+local ScriptsSection = ScriptsTab:CreateSection("Hubs")
+
+local Button = ScriptsTab:CreateButton({
+   Name = "Pendulum Hub [SUS]",
+   Callback = function()
+	  loadstring(game:HttpGet('https://pastebin.com/raw/TXs1z7DW'))()
+   end,
+})
+
+local Button = ScriptsTab:CreateButton({
+   Name = "Eclipse Hub [MM2, Da Hood, AND MORE!]",
+   Callback = function()
+	  loadstring(game:HttpGet('https://pastebin.com/raw/rHSghDU0'))()
+   end,
+})
